@@ -1,79 +1,81 @@
-# Data Project Template
+# Customer Retention
 
-<a target="_blank" href="https://datalumina.com/">
-    <img src="https://img.shields.io/badge/Datalumina-Project%20Template-2856f7" alt="Datalumina Project" />
-</a>
+## 🔴 Detailed Session on EDA:
 
-## Cookiecutter Data Science
-This project template is a simplified version of the [Cookiecutter Data Science](https://cookiecutter-data-science.drivendata.org) template, created to suit the needs of Datalumina and made available as a GitHub template.
+[![Alt text](https://user-images.githubusercontent.com/34673684/117579611-49cd5880-b126-11eb-9e2b-ef865c090808.png)](https://www.youtube.com/watch?v=baL7OrGWlxs)
 
-## Adjusting .gitignore
+## 🔴 One of my previous Sessions on EDA, Model Building & Model Deployment: 
 
-Ensure you adjust the `.gitignore` file according to your project needs. For example, since this is a template, the `/data/` folder is commented out and data will not be exlucded from source control:
+[![Alt text](https://raw.githubusercontent.com/pik1989/MLProject-Churn-Analysis-And-Prediction-Model/main/images/CC.JPG)](https://www.youtube.com/watch?v=GVECbcKUio4)
 
-```plaintext
-# exclude data from source control by default
-# /data/
+## 🔴 What is Customer Churning ?
+
+![Customer Retention](https://raw.githubusercontent.com/pik1989/MLProject-Churn-Analysis-And-Prediction-Model/main/images/Telco1.JPG)
+
+## 🔴 What are the different Churn Scenarios ?
+
+![Churn Scenarios](https://raw.githubusercontent.com/pik1989/MLProject-Churn-Analysis-And-Prediction-Model/main/images/Telco2.JPG)
+
+## 🔴 Decision Cycle of a Subscriber ?
+
+![Decision Cycle](https://raw.githubusercontent.com/pik1989/MLProject-Churn-Analysis-And-Prediction-Model/main/images/Telco3.JPG)
+
+## 🔴 What are the different Churn Segments ?
+
+![Churn Segments](https://raw.githubusercontent.com/pik1989/MLProject-Churn-Analysis-And-Prediction-Model/main/images/Telco4.JPG)
+
+## 🔴 Solution Overview
+
+![Solution](https://raw.githubusercontent.com/pik1989/MLProject-Churn-Analysis-And-Prediction-Model/main/images/Telco5.JPG)
+
+
+In this repository, we have performed the end to end Exploratory Data Analysis, and idenfitied the characteristics of the customers that are more likely to churn, and I have used them wisely to create a model, and lately, have deployed the model.
+
+### 🟢 For EDA, please refer to : Churn Analysis - EDA.ipynb
+### 🟢 For Model Building, please refer to: Churn Analysis - Model Building.ipynb
+### 🟢 For Model Deployment, please refer to app.py
+
+
+### 🔵 Creating the flask API
+
+```
+app = Flask("__name__")
 ```
 
-Typically, you want to exclude this folder if it contains either sensitive data that you do not want to add to version control or large files.
-
-## Duplicating the .env File
-To set up your environment variables, you need to duplicate the `.env.example` file and rename it to `.env`. You can do this manually or using the following terminal command:
-
-```bash
-cp .env.example .env # Linux, macOS, Git Bash, WSL
-copy .env.example .env # Windows Command Prompt
+The loadPage method calls our home.html.
+```
+@app.route("/")
+def loadPage():
+	return render_template('home.html', query="")
 ```
 
-This command creates a copy of `.env.example` and names it `.env`, allowing you to configure your environment variables specific to your setup.
-
-
-## Project Organization
-
+The predict method is our POST method, which is basically called when we pass all the inputs from our front end and click SUBMIT.
 ```
-├── LICENSE            <- Open-source license if one is chosen
-├── README.md          <- The top-level README for developers using this project
-├── data
-│   ├── external       <- Data from third party sources
-│   ├── interim        <- Intermediate data that has been transformed
-│   ├── processed      <- The final, canonical data sets for modeling
-│   └── raw            <- The original, immutable data dump
-│
-├── models             <- Trained and serialized models, model predictions, or model summaries
-│
-├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-│                         the creator's initials, and a short `-` delimited description, e.g.
-│                         `1.0-jqp-initial-data-exploration`
-│
-├── references         <- Data dictionaries, manuals, and all other explanatory materials
-│
-├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-│   └── figures        <- Generated graphics and figures to be used in reporting
-│
-├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
-│                         generated with `pip freeze > requirements.txt`
-│
-└── src                         <- Source code for this project
-    │
-    ├── __init__.py             <- Makes src a Python module
-    │
-    ├── config.py               <- Store useful variables and configuration
-    │
-    ├── dataset.py              <- Scripts to download or generate data
-    │
-    ├── features.py             <- Code to create features for modeling
-    │
-    │    
-    ├── modeling                
-    │   ├── __init__.py 
-    │   ├── predict.py          <- Code to run model inference with trained models          
-    │   └── train.py            <- Code to train models
-    │
-    ├── plots.py                <- Code to create visualizations 
-    │
-    └── services                <- Service classes to connect with external platforms, tools, or APIs
-        └── __init__.py 
+@app.route("/", methods=['POST'])
+def predict():
+```
+  
+The run() method of Flask class runs the application on the local development server.
+```
+app.run()
 ```
 
---------
+
+Yay, our model is ready, let’s test our bot.
+The above given Python script is executed from Python shell.
+
+Go to Anaconda Prompt, and run the below query.
+```
+python app.py
+```
+
+
+Below message in Python shell is seen, which indicates that our App is now hosted at http://127.0.0.1:5000/ or localhost:5000
+```
+* Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+```
+
+
+HERE'S HOW OUR FRONTEND LOOKS LIKE:
+
+![Customer Retention](https://raw.githubusercontent.com/pik1989/MLProject-Churn-Analysis-And-Prediction-Model/main/images/Telco6.JPG)
